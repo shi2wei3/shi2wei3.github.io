@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>John - Atom feed</title>
+    <link href="http://shi2wei3.github.io/rss.xml" rel="self" />
+    <link href="http://shi2wei3.github.io" />
+    <id>http://shi2wei3.github.io/rss.xml</id>
+    <author>
+        <name>Wei Shi</name>
+        <email>shi2wie3@gmail.com</email>
+    </author>
+    <updated>2014-12-02T00:00:00Z</updated>
+    <entry>
+    <title>My first blog</title>
+    <link href="http://shi2wei3.github.io/posts/2014-12-02-my-first-blog.html" />
+    <id>http://shi2wei3.github.io/posts/2014-12-02-my-first-blog.html</id>
+    <published>2014-12-02T00:00:00Z</published>
+    <updated>2014-12-02T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<p>So excited now, it takes me four days to build this whole site. This site is hosted on <a href="https://github.com/shi2wei3/shi2wei3.github.io">Github</a>, powered by <a href="http://jaspervdj.be/hakyll">hakyll</a> which is written in <a href="https://www.haskell.org">haskell</a>. I like to use termal(console) rather than GUI, tmux, mutt, irssi is my favorite. I’ll main post technical sharings here about Linux, programing languages and Virtualization/Cloud related things. Tweet me up at <a href="https://twitter.com/shi2wei3">@shi2wei3</a></p>]]></summary>
+</entry>
+
+</feed>
