@@ -1,21 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <title>John - Atom feed</title>
-    <link href="http://shi2wei3.github.io/rss.xml" rel="self" />
-    <link href="http://shi2wei3.github.io" />
-    <id>http://shi2wei3.github.io/rss.xml</id>
-    <author>
-        <name>Wei Shi</name>
-        <email>shi2wie3@gmail.com</email>
-    </author>
-    <updated>2014-12-03T00:00:00Z</updated>
-    <entry>
-    <title>Oracle 11g XE on RHEL7</title>
-    <link href="http://shi2wei3.github.io/posts/2014-12-03-oracle-11g-xe-on-rhel7.html" />
-    <id>http://shi2wei3.github.io/posts/2014-12-03-oracle-11g-xe-on-rhel7.html</id>
-    <published>2014-12-03T00:00:00Z</published>
-    <updated>2014-12-03T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<p>The prerequisite is i assume you already got a RHEL7 installed with GNOME3</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="Code, design, systems">
+    <title>John  - Oracle 11g XE on RHEL7 </title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/core.css" />
+    <link rel="image_src" href="../favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="John" href="../rss.xml" />
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row head">
+        <div class="col-lg-12 col-lg-offset-0">
+          <div class="page-header">
+            <h1>
+              <a href="../">John
+              </a>
+            </h1>
+          </div>
+          <ul class="nav nav-pills header">
+            <li role="presentation">
+            <a href="../blog.html"><i class="fa fa-home fa-lg fa-fw"></i>Home</a>
+            </li>
+            <li role="presentation">
+            <a href="../posts.html"><i class="fa fa-pencil fa-lg fa-fw"></i>Posts</a>
+            </li>
+            <li role="presentation">
+            <a href="../tags.html"><i class="fa fa-tags fa-lg fa-fw"></i>Tags</a>
+            </li>
+            <li role="presentation">
+            <a href="../slides.html"><i class="fa fa-slideshare fa-lg fa-fw"></i>Slides</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row content">
+          <div class="post">
+  <article>
+    <header>
+      <h2 class="post-title">Oracle 11g XE on RHEL7</h2>
+      <p class="metadata">
+        <span class="date">December  3, 2014</span> - <span class="tags"><a href="../tags/database.html">database</a></span>
+      </p>
+    </header>
+    <p>The prerequisite is i assume you already got a RHEL7 installed with GNOME3</p>
 <h2 id="install-oracle-database">Install oracle database</h2>
 <p>it needs swap volume at least specify space</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">unzip</span> oracle-xe-11.2.0-1.0.x86_64.rpm.zip
@@ -40,7 +72,7 @@
 <h2 id="do-experiment-for-joel-spolskys-the-law-of-leaky-abstractions">Do experiment for Joel Spolsky’s “The Law of Leaky Abstractions”</h2>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="co">-- create new tablespace</span>
 <span class="kw">create</span> <span class="kw">tablespace</span> <span class="kw">DATA</span>
-  <span class="kw">datafile</span> <span class="st">&#39;/u01/app/oracle/oradata/XE/data.dbf&#39;</span>
+  <span class="kw">datafile</span> <span class="st">'/u01/app/oracle/oradata/XE/data.dbf'</span>
   <span class="kw">size</span> 1024m
   <span class="kw">autoextend</span> <span class="kw">on</span>
   <span class="kw">next</span> 10m <span class="kw">maxsize</span> 10240m
@@ -69,11 +101,11 @@
   strSql     <span class="dt">varchar2</span>(<span class="dv">1000</span>);
 <span class="kw">begin</span>
   <span class="kw">for</span> i <span class="kw">in</span> <span class="dv">1</span> .. <span class="dv">5000</span> <span class="kw">loop</span>
-    strSql := <span class="st">&#39;insert into table_a(id, value) values (&#39;</span> || i || <span class="st">&#39;, </span><span class="ch">&#39;&#39;</span><span class="st">&#39;</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">&#39;</span><span class="ch">&#39;&#39;</span><span class="st">)&#39;</span>;
+    strSql := <span class="st">'insert into table_a(id, value) values ('</span> || i || <span class="st">', </span><span class="ch">''</span><span class="st">'</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">'</span><span class="ch">''</span><span class="st">)'</span>;
     <span class="kw">execute</span> <span class="kw">immediate</span> strSql;
-    strSql := <span class="st">&#39;insert into table_b(id, value) values (&#39;</span> || i || <span class="st">&#39;, </span><span class="ch">&#39;&#39;</span><span class="st">&#39;</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">&#39;</span><span class="ch">&#39;&#39;</span><span class="st">)&#39;</span>;
+    strSql := <span class="st">'insert into table_b(id, value) values ('</span> || i || <span class="st">', </span><span class="ch">''</span><span class="st">'</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">'</span><span class="ch">''</span><span class="st">)'</span>;
     <span class="kw">execute</span> <span class="kw">immediate</span> strSql;
-    strSql := <span class="st">&#39;insert into table_c(id, value) values (&#39;</span> || i || <span class="st">&#39;, </span><span class="ch">&#39;&#39;</span><span class="st">&#39;</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">&#39;</span><span class="ch">&#39;&#39;</span><span class="st">)&#39;</span>;
+    strSql := <span class="st">'insert into table_c(id, value) values ('</span> || i || <span class="st">', </span><span class="ch">''</span><span class="st">'</span> || <span class="fu">abs</span>(<span class="fu">mod</span>(dbms_random.random,<span class="dv">100</span>)) || <span class="st">'</span><span class="ch">''</span><span class="st">)'</span>;
     <span class="kw">execute</span> <span class="kw">immediate</span> strSql;
   <span class="kw">end</span> <span class="kw">loop</span>;
 <span class="kw">end</span>;
@@ -137,15 +169,44 @@ Predicate Information (identified by operation id):
    3 - access(&quot;A&quot;.&quot;ID&quot;=&quot;B&quot;.&quot;ID&quot;)
 </code></pre>
 <h2 id="conclusion">Conclusion</h2>
-<p>Philosophically speaking, SQL (as an abstraction) was meant to hide all aspects of implementation. It was meant to be declarative (a SQL server can itself use sql query optimization techniques to rephrase the query to make them more efficient). But in the real world it is not so - often the database queries have to be rewritten by humans to make them more efficient.</p>]]></summary>
-</entry>
-<entry>
-    <title>My first blog</title>
-    <link href="http://shi2wei3.github.io/posts/2014-12-02-my-first-blog.html" />
-    <id>http://shi2wei3.github.io/posts/2014-12-02-my-first-blog.html</id>
-    <published>2014-12-02T00:00:00Z</published>
-    <updated>2014-12-02T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<p>So excited now, it takes me four days to build this whole site. This site is hosted on <a href="https://github.com/shi2wei3/shi2wei3.github.io">Github</a>, powered by <a href="http://jaspervdj.be/hakyll">hakyll</a> which is written in <a href="https://www.haskell.org">haskell</a>. I like to use termal(console) rather than GUI, tmux, mutt, irssi is my favorite. I’ll main post technical sharings here about Linux, programing languages and Virtualization/Cloud related things. Tweet me up at <a href="https://twitter.com/shi2wei3">@shi2wei3</a></p>]]></summary>
-</entry>
+<p>Philosophically speaking, SQL (as an abstraction) was meant to hide all aspects of implementation. It was meant to be declarative (a SQL server can itself use sql query optimization techniques to rephrase the query to make them more efficient). But in the real world it is not so - often the database queries have to be rewritten by humans to make them more efficient.</p>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'shi2wei3'; // required: replace example with your forum shortname
 
-</feed>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </article>
+</div>
+
+      </div>
+      <div class="row footer">
+        <div class="col-lg-12 col-lg-offset-0">
+          <div class="bottom"> Generated using <a href="http://jaspervdj.be/hakyll/">Hakyll</a>.  Source available on <a href="https://github.com/shi2wei3/shi2wei3.github.io">GitHub</a>. Code licensed under <a rel="license" href="http://www.gnu.org/licenses/gpl-2.0.html">GPLv2</a> ,documentation under  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16166562-4']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>
