@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="John Doe" />
+  <meta name="dcterms.date" content="2005-03-22" />
+  <title>Introduction of AWS</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../reveal.js/css/reveal.min.css" />
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+        <section><section id="xen" class="titleslide slide level1"><h1>Xen</h1></section><section id="xen-toolstacks" class="slide level2">
+<h1>Xen toolstacks</h1>
+<figure>
+<img src="../images/toolstacks.png" alt="Toolstacks" /><figcaption>Toolstacks</figcaption>
+</figure>
+</section><section id="xcp-xenserver" class="slide level2">
+<h1>XCP &amp; XenServer</h1>
+<ul>
+<li>XenServer is Citrix’ commercial distribution of XCP. XCP contains a subset of features of XenServer functionality</li>
+<li>But…</li>
+</ul>
+</section><section class="slide level2">
+
+<ul>
+<li>2013/06/25, Citrix announced that XenServer would be fully open sourced and that it will be made available from XenServer.org. XenServer always has been based on open source software: containing the Xen hypervisor, the Linux kernel, the CentOS Linux distribution and user tools.</li>
+</ul>
+</section><section id="xen-on-linux" class="slide level2">
+<h1>Xen on Linux</h1>
+<ul>
+<li>All Linux distros (except RHEL6/RHEL7)</li>
+<li>http://wiki.xen.org/wiki/Category:Host_Install</li>
+</ul>
+</section><section id="xenserver-on-linux" class="slide level2">
+<h1>XenServer on Linux</h1>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/xenserver.png" alt="XenServer" /><figcaption>XenServer</figcaption>
+</figure>
+</section><section id="xen-cloud" class="slide level2">
+<h1>Xen &amp; Cloud</h1>
+<ul>
+<li>Amazon Web Services</li>
+<li>Rackspace Hosting</li>
+<li>IaaS Trusted Public S5(Fujitsu)</li>
+<li>Verizon Cloud</li>
+<li>IBM SoftLayer</li>
+<li>Liquid Web</li>
+<li>Linode</li>
+<li>OrionVM</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/support.png" alt="Cloud support" /><figcaption>Cloud support</figcaption>
+</figure>
+</section></section>
+<section><section id="amazon-web-services" class="titleslide slide level1"><h1>Amazon Web Services</h1></section><section id="services" class="slide level2">
+<h1>Services</h1>
+<h3 id="services-at-a-glance">Services at a glance</h3>
+</section><section id="what-to-do-with-aws" class="slide level2">
+<h1>What to do with AWS</h1>
+<ul>
+<li>Store public or private data.</li>
+<li>Host a static website</li>
+<li>Host a dynamic website</li>
+<li>…</li>
+</ul>
+</section><section id="how-to-access-aws" class="slide level2">
+<h1>How to access AWS</h1>
+<ul>
+<li>AWS Management Console</li>
+<li>AWS Command Line Interface (AWS CLI)</li>
+<li>Command Line Tools</li>
+<li>AWS Software Development Kits (SDK)
+<ul>
+<li>APIs that are specific to your programming language or platform.</li>
+</ul></li>
+<li>Query APIs
+<ul>
+<li>Low-level APIs that you access using HTTP requests.</li>
+</ul></li>
+</ul>
+</section><section id="what-about-the-price" class="slide level2">
+<h1>What about the price</h1>
+<ul>
+<li>Pay only for what you use.(But…)</li>
+<li>New AWS account is eligible for the AWS Free Tier within the first 12 months.</li>
+<li>http://aws.amazon.com/pricing/</li>
+</ul>
+</section><section id="iam" class="slide level2">
+<h1>IAM</h1>
+<h3 id="aws-identity-and-access-management">AWS Identity and Access Management</h3>
+<ul>
+<li>AWS account</li>
+<li>IAM user</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/ConsolidatedBilling_IAM.png" alt="Consolidated Billing" /><figcaption>Consolidated Billing</figcaption>
+</figure>
+</section><section id="solution-for-static-website" class="slide level2">
+<h1>Solution for Static Website</h1>
+<ul>
+<li>Amazon S3</li>
+<li>Amazon Route 53</li>
+<li>CloudFront</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/AWS_StaticWebsiteHosting_Architecture.png" alt="Hosting a Static Website on AWS" /><figcaption>Hosting a Static Website on AWS</figcaption>
+</figure>
+</section><section id="solution-for-web-app" class="slide level2">
+<h1>Solution for Web App</h1>
+<ul>
+<li>Amazon EC2</li>
+<li>Amazon EBS</li>
+<li>Amazon RDS</li>
+<li>Elastic Load Balancing</li>
+<li>Auto Scaling</li>
+<li>CloudWatch</li>
+<li>Amazon Route 53</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/AWS_WebAppHosting_Architecture.png" alt="Hosting a Web App on AWS" /><figcaption>Hosting a Web App on AWS</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/aws_regions.png" alt="Regions" /><figcaption>Regions</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/regions.png" alt="Regions" /><figcaption>Regions</figcaption>
+</figure>
+</section><section id="features-of-ec2" class="slide level2">
+<h1>Features of EC2</h1>
+<ul>
+<li><p>Virtual computing environments, known as instances</p></li>
+<li><p>Preconfigured templates for your instances, known as Amazon Machine Images (AMIs), that package the bits you need for your server (including the operating system and additional software)</p></li>
+<li><p>Various configurations of CPU, memory, storage, and networking capacity for your instances, known as instance types</p></li>
+<li><p>Secure login information for your instances using key pairs (AWS stores the public key, and you store the private key in a secure place)</p></li>
+</ul>
+</section><section class="slide level2">
+
+<ul>
+<li><p>Storage volumes for temporary data that’s deleted when you stop or terminate your instance, known as instance store volumes</p></li>
+<li><p>Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS), known as Amazon EBS volumes</p></li>
+<li><p>Multiple physical locations for your resources, such as instances and Amazon EBS volumes, known as regions and Availability Zones</p></li>
+<li><p>A firewall that enables you to specify the protocols, ports, and source IP ranges that can reach your instances using security groups</p></li>
+</ul>
+</section><section class="slide level2">
+
+<ul>
+<li><p>Static IP addresses for dynamic cloud computing, known as Elastic IP addresses</p></li>
+<li><p>Metadata, known as tags, that you can create and assign to your Amazon EC2 resources</p></li>
+<li><p>Virtual networks you can create that are logically isolated from the rest of the AWS cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)</p></li>
+</ul>
+</section><section id="multi-tenancy-problem" class="slide level2">
+<h1>multi-tenancy problem</h1>
+<ul>
+<li>Noisy neighbors</li>
+</ul>
+</section></section>
+<section><section id="other-cloud-providers" class="titleslide slide level1"><h1>Other Cloud Providers</h1></section><section id="rackspace" class="slide level2">
+<h1>Rackspace</h1>
+<h3 id="onmetal-cloud-servers-are-single-tenant-bare-metal-systems-that-you-can">OnMetal Cloud Servers are single-tenant, bare-metal systems that you can:</h3>
+<ul>
+<li>Provision in minutes via an OpenStack® API.</li>
+<li>Mix and match with virtual cloud servers.</li>
+<li>Pay by the minute.</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="../images/onmetal-flowchart.png" alt="Web request flow" /><figcaption>Web request flow</figcaption>
+</figure>
+</section><section id="google-cloud-platform" class="slide level2">
+<h1>Google Cloud Platform</h1>
+<ul>
+<li>Google App Engine - PaaS</li>
+<li>Google Compute Engine uses KVM as the hypervisor</li>
+<li>Google Container Engine - Kubernetes managed GCE nodes in the cluster</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: '/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
+
