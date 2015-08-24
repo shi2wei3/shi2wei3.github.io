@@ -50,27 +50,27 @@
     <p>The prerequisite is i assume you already got a RHEL7 installed with GNOME3</p>
 <h2 id="install-oracle-database">Install oracle database</h2>
 <p>it needs swap volume at least specify space</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">unzip</span> oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">unzip</span> oracle-xe-11.2.0-1.0.x86_64.rpm.zip
 <span class="kw">cd</span> Disk1
-<span class="kw">sudo</span> rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm</code></pre>
+<span class="kw">sudo</span> rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm</code></pre></div>
 <h2 id="install-sqlplus">Install sqlplus</h2>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
-<span class="kw">sudo</span> rpm -ivh oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
+<span class="kw">sudo</span> rpm -ivh oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm</code></pre></div>
 <p>If you got the error below, you need to add library path manually: sqlplus64: error while loading shared libraries: libsqlplus.so: cannot open shared object file: No such file or directory</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">LD_LIBRARY_PATH=$LD_LIBRARY_PATH</span>:/usr/lib/oracle/12.1/client64/lib/</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">LD_LIBRARY_PATH=$LD_LIBRARY_PATH</span>:/usr/lib/oracle/12.1/client64/lib/</code></pre></div>
 <h2 id="install-sqldeveloper-optional">Install sqldeveloper (Optional)</h2>
 <p>Install jdk</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rpm -ivh jdk-7u72-linux-x64.rpm
-<span class="kw">sudo</span> rpm -ivh sqldeveloper-4.0.3.16.84-1.noarch.rpm</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rpm -ivh jdk-7u72-linux-x64.rpm
+<span class="kw">sudo</span> rpm -ivh sqldeveloper-4.0.3.16.84-1.noarch.rpm</code></pre></div>
 <p>Update JDK_HOME to SetJavaHome in: ~/.sqldeveloper/4.0.0/product.conf</p>
 <p>Add the command below to /usr/local/bin/sqldeveloper: unset GNOME_DESKTOP_SESSION_ID</p>
 <h2 id="login-to-apex-optional">Login to APEX (Optional)</h2>
 <p>http://localhost:8080/apex/apex_admin</p>
 <p>if you forgot the admin password, you can change it follow the <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/11g/r2/prod/install/apexinst/apexinst_prod.htm">steps</a></p>
 <h2 id="how-to-restart-database">How to restart database</h2>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/etc/init.d/oracle-xe</span> restart</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/etc/init.d/oracle-xe</span> restart</code></pre></div>
 <h2 id="do-experiment-for-joel-spolskys-the-law-of-leaky-abstractions">Do experiment for Joel Spolsky’s “The Law of Leaky Abstractions”</h2>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="co">-- create new tablespace</span>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="co">-- create new tablespace</span>
 <span class="kw">create</span> <span class="kw">tablespace</span> <span class="kw">DATA</span>
   <span class="kw">datafile</span> <span class="st">'/u01/app/oracle/oradata/XE/data.dbf'</span>
   <span class="kw">size</span> 1024m
@@ -118,7 +118,7 @@
 
 <span class="co">-- compare the differents between the following two SQL</span>
 <span class="kw">select</span> <span class="fu">count</span>(*) <span class="kw">from</span> table_a a, table_b b, table_c c <span class="kw">where</span> a.id = b.id <span class="kw">and</span> b.id = c.id;
-<span class="kw">select</span> <span class="fu">count</span>(*) <span class="kw">from</span> table_a a, table_b b, table_c c <span class="kw">where</span> a.id = b.id <span class="kw">and</span> b.id = c.id <span class="kw">and</span> c.id = a.id;</code></pre>
+<span class="kw">select</span> <span class="fu">count</span>(*) <span class="kw">from</span> table_a a, table_b b, table_c c <span class="kw">where</span> a.id = b.id <span class="kw">and</span> b.id = c.id <span class="kw">and</span> c.id = a.id;</code></pre></div>
 <p>Here are the execution plans, and we could find the join method and the join condition is quite different, also we need to consider the table analysis and the env(record amount, memory etc) would affect the result, but generally the second SQL runs dramatically faster than the first one.</p>
 <pre><code>  COUNT(*)
 ----------

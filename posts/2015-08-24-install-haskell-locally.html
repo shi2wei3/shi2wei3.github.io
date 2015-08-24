@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="Code, design, systems">
+    <title>John  - Install haskell locally without root permission </title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/core.css" />
+    <link rel="image_src" href="../favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="John" href="../rss.xml" />
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row head">
+        <div class="col-lg-12 col-lg-offset-0">
+          <div class="page-header">
+            <h1>
+              <a href="../">John
+              </a>
+            </h1>
+          </div>
+          <ul class="nav nav-pills header">
+            <li role="presentation">
+            <a href="../blog.html"><i class="fa fa-home fa-lg fa-fw"></i>Home</a>
+            </li>
+            <li role="presentation">
+            <a href="../posts.html"><i class="fa fa-pencil fa-lg fa-fw"></i>Posts</a>
+            </li>
+            <li role="presentation">
+            <a href="../tags.html"><i class="fa fa-tags fa-lg fa-fw"></i>Tags</a>
+            </li>
+            <li role="presentation">
+            <a href="../slides.html"><i class="fa fa-slideshare fa-lg fa-fw"></i>Slides</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row content">
+          <div class="post">
+  <article>
+    <header>
+      <h2 class="post-title">Install haskell locally without root permission</h2>
+      <p class="metadata">
+        <span class="date">August 24, 2015</span> - <span class="tags"><a href="../tags/haskell.html">haskell</a></span>
+      </p>
+    </header>
+    <p>Official Guide</p>
+<p><a href="https://www.haskell.org/downloads/linux" class="uri">https://www.haskell.org/downloads/linux</a></p>
+<h2 id="prepare-haskell-packages">Prepare haskell packages</h2>
+<p>Glasgow Haskell Compiler (GHC)</p>
+<p><a href="https://www.haskell.org/ghc/download" class="uri">https://www.haskell.org/ghc/download</a></p>
+<p>Cabal-install</p>
+<p><a href="http://hackage.haskell.org/package/cabal-install" class="uri">http://hackage.haskell.org/package/cabal-install</a></p>
+<h2 id="install-haskell-packages">Install haskell packages</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">tar</span> xf ghc-7.10.2-x86_64-unknown-linux-deb7.tar.xz
+<span class="kw">cd</span> ghc-7.10.2/
+<span class="kw">./configure</span> --prefix=/home/wshi/.cabal
+<span class="kw">make</span> install
+<span class="kw">cd</span>
+<span class="kw">tar</span> xf cabal-install-1.22.6.0.tar.gz
+<span class="kw">cd</span> cabal-install-1.22.6.0/
+<span class="kw">./bootstrap.sh</span>
+<span class="kw">cabal</span> update
+<span class="kw">rm</span> -f ghc-7.10.2-x86_64-unknown-linux-deb7.tar.xz cabal-install-1.22.6.0.tar.gz</code></pre></div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'shi2wei3'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </article>
+</div>
+
+      </div>
+      <div class="row footer">
+        <div class="col-lg-12 col-lg-offset-0">
+          <div class="bottom"> Generated using <a href="http://jaspervdj.be/hakyll/">Hakyll</a>.  Source available on <a href="https://github.com/shi2wei3/shi2wei3.github.io">GitHub</a>. Code licensed under <a rel="license" href="http://www.gnu.org/licenses/gpl-2.0.html">GPLv2</a> ,documentation under  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16166562-4']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>
